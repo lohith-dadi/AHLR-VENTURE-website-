@@ -1,0 +1,2043 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AHLR Venture | Connecting you to reliable contractors</title>
+  <meta name="description" content="AHLR Venture connects homeowners and small builders with verified, reliable contractors for civil construction, renovation, plumbing, electrical, and building services.">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="alternate icon" href="favicon.ico">
+
+  <!-- Geometric Sans-Serif Typography (Jost) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ==========================================================================
+       CSS VARIABLES & THEME
+       ========================================================================== */
+    :root {
+      --color-navy: #0B1424;
+      --color-navy-surface: #13223D;
+      --color-navy-border: #1E345D;
+      --color-gold: #D9A02B;
+      --color-gold-hover: #C38D22;
+      --color-gold-light: #FBF6EC;
+      --color-gold-border: #E8C172;
+      --color-bg-light: #F5F7FA;
+      --color-white: #FFFFFF;
+      --color-text-primary: #0B1424;
+      --color-text-secondary: #4A5568;
+      --color-text-muted: #718096;
+      --color-border: #E2E8F0;
+      --color-border-subtle: #EDF2F7;
+      --color-success: #1E8E3E;
+      --color-success-bg: #E6F4EA;
+      --color-error: #D93025;
+      --color-error-bg: #FCE8E6;
+      
+      --font-family: 'Jost', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      --radius-sm: 6px;
+      --radius-md: 10px;
+      --radius-lg: 16px;
+      --radius-full: 9999px;
+      
+      --shadow-sm: 0 1px 3px rgba(11, 20, 36, 0.06), 0 1px 2px rgba(11, 20, 36, 0.04);
+      --shadow-md: 0 4px 6px -1px rgba(11, 20, 36, 0.08), 0 2px 4px -1px rgba(11, 20, 36, 0.04);
+      --shadow-lg: 0 10px 25px -3px rgba(11, 20, 36, 0.1), 0 4px 6px -2px rgba(11, 20, 36, 0.05);
+      --shadow-xl: 0 20px 30px -5px rgba(11, 20, 36, 0.12);
+      
+      --header-height: 76px;
+      --transition-standard: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* ==========================================================================
+       RESET & BASE STYLES
+       ========================================================================== */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      font-family: var(--font-family);
+      color: var(--color-text-primary);
+      background-color: var(--color-bg-light);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    img, svg {
+      display: block;
+      max-width: 100%;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button, input, select, textarea {
+      font: inherit;
+      color: inherit;
+    }
+
+    /* Accessibility Skip Link */
+    .skip-link {
+      position: absolute;
+      top: -60px;
+      left: 16px;
+      background: var(--color-gold);
+      color: var(--color-navy);
+      font-weight: 700;
+      padding: 12px 20px;
+      border-radius: var(--radius-sm);
+      z-index: 1000;
+      transition: top 0.2s ease;
+      box-shadow: var(--shadow-md);
+    }
+    .skip-link:focus {
+      top: 16px;
+    }
+
+    /* Keyboard Focus Ring */
+    :focus-visible {
+      outline: 2px solid var(--color-gold);
+      outline-offset: 3px;
+    }
+
+    /* Container Utility */
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+
+    /* Section Spacing */
+    .section {
+      padding: 80px 0;
+      scroll-margin-top: calc(var(--header-height) + 16px);
+    }
+    @media (max-width: 768px) {
+      .section {
+        padding: 56px 0;
+      }
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 720px;
+      margin: 0 auto 48px auto;
+    }
+
+    .section-tag {
+      display: inline-block;
+      font-size: 0.8125rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--color-gold);
+      margin-bottom: 10px;
+    }
+
+    .section-title {
+      font-size: 2.25rem;
+      font-weight: 700;
+      line-height: 1.25;
+      color: var(--color-navy);
+      margin-bottom: 14px;
+      letter-spacing: -0.01em;
+    }
+    @media (max-width: 768px) {
+      .section-title {
+        font-size: 1.75rem;
+      }
+    }
+
+    .section-subtitle {
+      font-size: 1.0625rem;
+      color: var(--color-text-secondary);
+      line-height: 1.6;
+    }
+
+    /* ==========================================================================
+       BUTTONS
+       ========================================================================== */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px 24px;
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: var(--radius-full);
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: var(--transition-standard);
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    .btn-gold {
+      background-color: var(--color-gold);
+      color: var(--color-navy);
+      border-color: var(--color-gold);
+    }
+    .btn-gold:hover {
+      background-color: var(--color-gold-hover);
+      border-color: var(--color-gold-hover);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(217, 160, 43, 0.35);
+    }
+
+    .btn-outline-navy {
+      background-color: transparent;
+      color: var(--color-navy);
+      border-color: var(--color-navy);
+    }
+    .btn-outline-navy:hover {
+      background-color: var(--color-navy);
+      color: var(--color-white);
+      transform: translateY(-1px);
+    }
+
+    .btn-outline-white {
+      background-color: transparent;
+      color: var(--color-white);
+      border-color: rgba(255, 255, 255, 0.4);
+    }
+    .btn-outline-white:hover {
+      background-color: var(--color-white);
+      color: var(--color-navy);
+      border-color: var(--color-white);
+    }
+
+    .btn-full {
+      width: 100%;
+    }
+
+    .btn-sm {
+      padding: 9px 18px;
+      font-size: 0.875rem;
+    }
+
+    /* ==========================================================================
+       HEADER & NAVIGATION (Sticky)
+       ========================================================================== */
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 500;
+      height: var(--header-height);
+      background-color: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--color-border);
+      transition: box-shadow 0.25s ease, background-color 0.25s ease;
+    }
+    .header.is-scrolled {
+      box-shadow: var(--shadow-sm);
+    }
+
+    .header-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 100%;
+    }
+
+    .brand-logo-link {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      gap: 12px;
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      height: 48px;
+    }
+    .logo-svg {
+      height: 46px;
+      width: auto;
+    }
+
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-link {
+      font-size: 0.9375rem;
+      font-weight: 500;
+      color: var(--color-navy);
+      position: relative;
+      padding: 6px 0;
+      transition: color 0.2s ease;
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0%;
+      height: 2px;
+      background-color: var(--color-gold);
+      transition: width 0.25s ease;
+      border-radius: 2px;
+    }
+    .nav-link:hover {
+      color: var(--color-gold-hover);
+    }
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .mobile-menu-toggle {
+      display: none;
+      background: none;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-sm);
+      padding: 8px;
+      cursor: pointer;
+      color: var(--color-navy);
+    }
+    .mobile-menu-toggle svg {
+      width: 24px;
+      height: 24px;
+    }
+
+    @media (max-width: 991px) {
+      .mobile-menu-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .nav-menu {
+        position: fixed;
+        top: var(--header-height);
+        left: 0;
+        right: 0;
+        background-color: var(--color-white);
+        border-bottom: 1px solid var(--color-border);
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 24px;
+        gap: 18px;
+        box-shadow: var(--shadow-lg);
+        transform: translateY(-120%);
+        opacity: 0;
+        visibility: hidden;
+        transition: transform 0.3s ease, opacity 0.3s ease, visibility 0.3s ease;
+      }
+      .nav-menu.is-active {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+      }
+      .nav-link {
+        font-size: 1.0625rem;
+        width: 100%;
+        padding: 8px 0;
+      }
+      .header-actions .btn-header-cta {
+        display: none;
+      }
+      .nav-menu .mobile-only-cta {
+        display: block;
+        width: 100%;
+        margin-top: 10px;
+      }
+    }
+
+    @media (min-width: 992px) {
+      .nav-menu .mobile-only-cta {
+        display: none;
+      }
+    }
+
+    /* ==========================================================================
+       HERO SECTION WITH GOLD ROOFLINE & REQUEST FORM
+       ========================================================================== */
+    .hero-section {
+      background-color: var(--color-bg-light);
+      padding: 64px 0 80px 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 56px;
+      align-items: start;
+    }
+    @media (max-width: 991px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+    }
+
+    .hero-content {
+      padding-top: 12px;
+    }
+
+    /* Gold roofline line-drawing echoing house roof in logo */
+    .roofline-drawing {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+    .roofline-svg {
+      width: 68px;
+      height: 22px;
+      color: var(--color-gold);
+    }
+    .roofline-badge {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--color-gold-hover);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .hero-headline {
+      font-size: 3.125rem;
+      font-weight: 700;
+      line-height: 1.15;
+      color: var(--color-navy);
+      letter-spacing: -0.02em;
+      margin-bottom: 20px;
+    }
+    @media (max-width: 768px) {
+      .hero-headline {
+        font-size: 2.25rem;
+      }
+    }
+
+    .hero-description {
+      font-size: 1.125rem;
+      line-height: 1.65;
+      color: var(--color-text-secondary);
+      margin-bottom: 32px;
+      max-width: 580px;
+    }
+
+    .hero-cta-group {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-bottom: 40px;
+    }
+
+    /* Three Quick Assurances */
+    .assurances-list {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      padding-top: 24px;
+      border-top: 1px solid var(--color-border);
+    }
+    @media (max-width: 640px) {
+      .assurances-list {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+    }
+
+    .assurance-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .assurance-icon {
+      width: 24px;
+      height: 24px;
+      flex-shrink: 0;
+      color: var(--color-gold);
+    }
+    .assurance-text {
+      font-size: 0.9375rem;
+      font-weight: 600;
+      color: var(--color-navy);
+      line-height: 1.3;
+    }
+
+    /* ==========================================================================
+       PROJECT REQUEST FORM (Card)
+       ========================================================================== */
+    .form-card {
+      background-color: var(--color-white);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+    }
+    @media (max-width: 540px) {
+      .form-card {
+        padding: 24px 18px;
+      }
+    }
+
+    .form-card-header {
+      margin-bottom: 24px;
+    }
+    .form-card-title {
+      font-size: 1.375rem;
+      font-weight: 700;
+      color: var(--color-navy);
+      margin-bottom: 6px;
+    }
+    .form-card-subtitle {
+      font-size: 0.875rem;
+      color: var(--color-text-secondary);
+    }
+
+    .form-group {
+      margin-bottom: 18px;
+    }
+    .form-label {
+      display: block;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--color-navy);
+      margin-bottom: 6px;
+    }
+    .form-label .optional {
+      font-weight: 400;
+      color: var(--color-text-muted);
+      font-size: 0.8125rem;
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 11px 14px;
+      font-size: 0.9375rem;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-sm);
+      background-color: var(--color-white);
+      color: var(--color-text-primary);
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+    .form-control:focus {
+      border-color: var(--color-gold);
+      box-shadow: 0 0 0 3px rgba(217, 160, 43, 0.2);
+      outline: none;
+    }
+    .form-control::placeholder {
+      color: #9CA3AF;
+    }
+
+    select.form-control {
+      appearance: none;
+      -webkit-appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%230B1424' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 14px center;
+      padding-right: 38px;
+    }
+
+    textarea.form-control {
+      resize: vertical;
+      min-height: 80px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+    @media (max-width: 540px) {
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .form-status-alert {
+      display: none;
+      padding: 14px 16px;
+      border-radius: var(--radius-sm);
+      font-size: 0.9375rem;
+      font-weight: 500;
+      margin-top: 18px;
+      line-height: 1.4;
+    }
+    .form-status-alert.is-success {
+      display: block;
+      background-color: var(--color-success-bg);
+      color: var(--color-success);
+      border: 1px solid rgba(30, 142, 62, 0.25);
+    }
+    .form-status-alert.is-error {
+      display: block;
+      background-color: var(--color-error-bg);
+      color: var(--color-error);
+      border: 1px solid rgba(217, 48, 37, 0.25);
+    }
+
+    .btn-loading-spinner {
+      display: none;
+      width: 18px;
+      height: 18px;
+      border: 2px solid rgba(11, 20, 36, 0.3);
+      border-top-color: var(--color-navy);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+    .btn.is-submitting .btn-loading-spinner {
+      display: inline-block;
+    }
+
+    /* Highlight pulse when pre-selecting service from tiles */
+    .form-control.highlight-pulse {
+      animation: fieldHighlight 1.5s ease-out;
+    }
+    @keyframes fieldHighlight {
+      0% { border-color: var(--color-gold); box-shadow: 0 0 0 4px rgba(217, 160, 43, 0.4); }
+      70% { border-color: var(--color-gold); box-shadow: 0 0 0 4px rgba(217, 160, 43, 0.2); }
+      100% { border-color: var(--color-border); box-shadow: none; }
+    }
+
+    /* ==========================================================================
+       HOW IT WORKS (4 Steps)
+       ========================================================================== */
+    .how-it-works-section {
+      background-color: var(--color-white);
+      border-top: 1px solid var(--color-border);
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 28px;
+      position: relative;
+    }
+    @media (max-width: 991px) {
+      .steps-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 32px;
+      }
+    }
+    @media (max-width: 580px) {
+      .steps-grid {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+    }
+
+    .step-card {
+      background-color: var(--color-bg-light);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: 30px 24px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      transition: var(--transition-standard);
+    }
+    .step-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--color-gold-border);
+    }
+
+    .step-number-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      border-radius: var(--radius-sm);
+      background-color: var(--color-navy);
+      color: var(--color-gold);
+      font-size: 1.125rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    .step-title {
+      font-size: 1.1875rem;
+      font-weight: 700;
+      color: var(--color-navy);
+      margin-bottom: 10px;
+    }
+
+    .step-text {
+      font-size: 0.9375rem;
+      color: var(--color-text-secondary);
+      line-height: 1.55;
+    }
+
+    /* ==========================================================================
+       SERVICES SECTION (8 Clickable Tiles)
+       ========================================================================== */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+    @media (max-width: 991px) {
+      .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (max-width: 540px) {
+      .services-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+    }
+
+    .service-tile {
+      background-color: var(--color-white);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: 28px 22px;
+      text-align: left;
+      cursor: pointer;
+      transition: var(--transition-standard);
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      position: relative;
+      outline: none;
+    }
+    .service-tile:hover, .service-tile:focus-visible {
+      border-color: var(--color-gold);
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .service-icon-box {
+      width: 52px;
+      height: 52px;
+      border-radius: var(--radius-sm);
+      background-color: var(--color-gold-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-navy);
+      margin-bottom: 18px;
+      transition: var(--transition-standard);
+    }
+    .service-tile:hover .service-icon-box {
+      background-color: var(--color-gold);
+      color: var(--color-navy);
+    }
+
+    .service-icon-box svg {
+      width: 28px;
+      height: 28px;
+    }
+
+    .service-title {
+      font-size: 1.125rem;
+      font-weight: 700;
+      color: var(--color-navy);
+      margin-bottom: 6px;
+    }
+
+    .service-desc {
+      font-size: 0.875rem;
+      color: var(--color-text-secondary);
+      line-height: 1.5;
+      margin-bottom: 16px;
+      flex-grow: 1;
+    }
+
+    .service-action-link {
+      font-size: 0.8125rem;
+      font-weight: 600;
+      color: var(--color-gold-hover);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .service-action-link svg {
+      width: 14px;
+      height: 14px;
+      transition: transform 0.2s ease;
+    }
+    .service-tile:hover .service-action-link svg {
+      transform: translateX(4px);
+    }
+
+    /* ==========================================================================
+       WHY AHLR SECTION
+       ========================================================================== */
+    .why-section {
+      background-color: var(--color-white);
+      border-top: 1px solid var(--color-border);
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px;
+    }
+    @media (max-width: 768px) {
+      .why-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+    }
+
+    .why-card {
+      background-color: var(--color-bg-light);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: 32px;
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+      transition: var(--transition-standard);
+    }
+    .why-card:hover {
+      border-color: var(--color-gold-border);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .why-icon-wrap {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background-color: var(--color-navy);
+      color: var(--color-gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .why-icon-wrap svg {
+      width: 24px;
+      height: 24px;
+    }
+
+    .why-card-content h3 {
+      font-size: 1.1875rem;
+      font-weight: 700;
+      color: var(--color-navy);
+      margin-bottom: 8px;
+    }
+    .why-card-content p {
+      font-size: 0.9375rem;
+      color: var(--color-text-secondary);
+      line-height: 1.6;
+    }
+
+    /* ==========================================================================
+       COMPARE CONTRACTORS (Sample Listings)
+       ========================================================================== */
+    .compare-section {
+      background-color: var(--color-bg-light);
+    }
+
+    .sample-notice-banner {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background-color: var(--color-gold-light);
+      border: 1px solid var(--color-gold-border);
+      color: var(--color-navy);
+      padding: 6px 14px;
+      border-radius: var(--radius-full);
+      font-size: 0.8125rem;
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+
+    .contractors-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+    @media (max-width: 991px) {
+      .contractors-grid {
+        grid-template-columns: 1fr;
+        max-width: 600px;
+        margin: 0 auto;
+      }
+    }
+
+    .contractor-card {
+      background-color: var(--color-white);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: 28px;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      transition: var(--transition-standard);
+      position: relative;
+    }
+    .contractor-card:hover {
+      box-shadow: var(--shadow-lg);
+      border-color: var(--color-gold-border);
+      transform: translateY(-4px);
+    }
+
+    .contractor-sample-tag {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      font-size: 0.6875rem;
+      text-transform: uppercase;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      background-color: #EDF2F7;
+      color: var(--color-text-muted);
+      padding: 3px 8px;
+      border-radius: var(--radius-sm);
+    }
+
+    .contractor-trade-badge {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--color-gold-hover);
+      margin-bottom: 8px;
+    }
+
+    .contractor-name {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--color-navy);
+      margin-bottom: 8px;
+    }
+
+    .contractor-verified {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.8125rem;
+      font-weight: 600;
+      color: var(--color-success);
+      margin-bottom: 18px;
+    }
+    .contractor-verified svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    .contractor-meta-list {
+      list-style: none;
+      padding: 16px 0;
+      border-top: 1px solid var(--color-border-subtle);
+      border-bottom: 1px solid var(--color-border-subtle);
+      margin-bottom: 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .contractor-meta-item {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.875rem;
+    }
+    .meta-label {
+      color: var(--color-text-muted);
+    }
+    .meta-value {
+      font-weight: 600;
+      color: var(--color-navy);
+    }
+
+    .contractor-rating {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      color: var(--color-navy);
+    }
+    .rating-star {
+      color: var(--color-gold);
+    }
+
+    /* ==========================================================================
+       FOR CONTRACTORS SECTION (Banner + Sign-Up Form)
+       ========================================================================== */
+    .for-contractors-section {
+      background-color: var(--color-navy);
+      color: var(--color-white);
+      padding: 80px 0;
+    }
+
+    .contractor-join-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+    @media (max-width: 991px) {
+      .contractor-join-grid {
+        grid-template-columns: 1fr;
+        gap: 48px;
+      }
+    }
+
+    .contractor-banner-info .section-tag {
+      color: var(--color-gold);
+    }
+    .contractor-banner-info .section-title {
+      color: var(--color-white);
+    }
+    .contractor-banner-info p {
+      color: #CBD5E1;
+      font-size: 1.0625rem;
+      margin-bottom: 28px;
+    }
+
+    .contractor-perks-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-bottom: 32px;
+    }
+    .contractor-perk-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 0.9375rem;
+      color: #E2E8F0;
+    }
+    .contractor-perk-item svg {
+      width: 20px;
+      height: 20px;
+      color: var(--color-gold);
+      flex-shrink: 0;
+    }
+
+    .contractor-form-box {
+      background-color: var(--color-navy-surface);
+      border: 1px solid var(--color-navy-border);
+      border-radius: var(--radius-lg);
+      padding: 36px;
+      box-shadow: var(--shadow-xl);
+    }
+    @media (max-width: 540px) {
+      .contractor-form-box {
+        padding: 24px 20px;
+      }
+    }
+
+    .contractor-form-box h3 {
+      font-size: 1.375rem;
+      font-weight: 700;
+      color: var(--color-white);
+      margin-bottom: 6px;
+    }
+    .contractor-form-box p {
+      font-size: 0.875rem;
+      color: #94A3B8;
+      margin-bottom: 22px;
+    }
+
+    .contractor-form-box .form-label {
+      color: #E2E8F0;
+    }
+
+    .contractor-form-box .form-control {
+      background-color: #0B1424;
+      border-color: #273A5E;
+      color: var(--color-white);
+    }
+    .contractor-form-box .form-control:focus {
+      border-color: var(--color-gold);
+      box-shadow: 0 0 0 3px rgba(217, 160, 43, 0.25);
+    }
+
+    .contractor-form-box select.form-control {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23FFFFFF' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    }
+
+    /* ==========================================================================
+       FOOTER (Strictly no phone, address or email per requirements)
+       ========================================================================== */
+    .footer {
+      background-color: #070D18;
+      color: #94A3B8;
+      padding: 60px 0 36px 0;
+      border-top: 1px solid #1E293B;
+    }
+
+    .footer-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 40px;
+      padding-bottom: 48px;
+      border-bottom: 1px solid #1E293B;
+    }
+
+    .footer-brand {
+      max-width: 360px;
+    }
+
+    .footer-logo-svg {
+      height: 48px;
+      width: auto;
+      margin-bottom: 14px;
+    }
+
+    .footer-tagline {
+      font-size: 0.9375rem;
+      color: #CBD5E1;
+      margin-bottom: 8px;
+    }
+
+    .footer-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 32px;
+      list-style: none;
+    }
+    @media (max-width: 640px) {
+      .footer-nav {
+        flex-direction: column;
+        gap: 16px;
+      }
+    }
+
+    .footer-link {
+      font-size: 0.9375rem;
+      color: #CBD5E1;
+      transition: color 0.2s ease;
+    }
+    .footer-link:hover {
+      color: var(--color-gold);
+    }
+
+    .footer-bottom {
+      padding-top: 28px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      font-size: 0.8125rem;
+      color: #64748B;
+    }
+
+    /* ==========================================================================
+       REDUCED MOTION FOR ACCESSIBILITY
+       ========================================================================== */
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Accessibility Skip Navigation Link -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- ==========================================================================
+       1. HEADER (Sticky on scroll)
+       ========================================================================== -->
+  <header class="header" id="site-header">
+    <div class="container header-container">
+      <a href="#" class="brand-logo-link" aria-label="AHLR Venture Homepage">
+        <div class="logo-container">
+          <!-- Standalone SVG Logo echoing house roof & geometric Jost lettering -->
+          <svg class="logo-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 64" fill="none" role="img" aria-label="AHLR Venture">
+            <g transform="translate(6, 6)">
+              <path d="M 33 23 V 15 H 39 V 28.5" fill="none" stroke="#0B1424" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M 11 35 V 45 H 39 V 35" fill="none" stroke="#0B1424" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M 4 35 L 25 14 L 46 35" fill="none" stroke="#D9A02B" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M 21 45 V 34 H 29 V 45" fill="#D9A02B"/>
+              <circle cx="25" cy="24" r="2.5" fill="#0B1424"/>
+            </g>
+            <text x="66" y="35" font-family="'Jost', system-ui, sans-serif" font-size="28" font-weight="700" fill="#0B1424" letter-spacing="0.06em">AHLR</text>
+            <text x="67" y="51" font-family="'Jost', system-ui, sans-serif" font-size="12" font-weight="600" fill="#D9A02B" letter-spacing="0.28em">VENTURE</text>
+          </svg>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Menu -->
+      <nav id="primary-navigation" aria-label="Primary">
+        <ul class="nav-menu" id="nav-menu">
+          <li><a href="#how-it-works" class="nav-link">How it works</a></li>
+          <li><a href="#services" class="nav-link">Services</a></li>
+          <li><a href="#why-ahlr" class="nav-link">Why AHLR</a></li>
+          <li><a href="#for-contractors" class="nav-link">For contractors</a></li>
+          <li class="mobile-only-cta">
+            <a href="#project-form" class="btn btn-gold btn-full">Post a project</a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Header Action CTA Button -->
+      <div class="header-actions">
+        <a href="#project-form" class="btn btn-gold btn-sm btn-header-cta">Post a project</a>
+        <button type="button" class="mobile-menu-toggle" id="mobile-menu-btn" aria-expanded="false" aria-controls="nav-menu" aria-label="Toggle navigation menu">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <!-- ==========================================================================
+         2. HERO SECTION & 3. PROJECT REQUEST FORM
+         ========================================================================== -->
+    <section class="hero-section">
+      <div class="container">
+        <div class="hero-grid">
+          
+          <!-- Hero Left Content -->
+          <div class="hero-content">
+            <!-- Gold roofline line-drawing echoing house roof in logo -->
+            <div class="roofline-drawing" aria-hidden="true">
+              <svg class="roofline-svg" viewBox="0 0 68 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M4 19L34 5L64 19" stroke="#D9A02B" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M46 13V8H53V16.5" stroke="#D9A02B" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                <circle cx="34" cy="13" r="2" fill="#D9A02B"/>
+              </svg>
+              <span class="roofline-badge">Connecting you to reliable contractors</span>
+            </div>
+
+            <h1 class="hero-headline">Hire a contractor you can trust.</h1>
+            <p class="hero-description">
+              Compare transparent price estimates, verified past customer reviews, and actual contractor availability for your construction, renovation, and repair work in one simple step.
+            </p>
+
+            <div class="hero-cta-group">
+              <a href="#project-form" class="btn btn-gold">Post a project</a>
+              <a href="#how-it-works" class="btn btn-outline-navy">See how it works</a>
+            </div>
+
+            <!-- Three Quick Assurances -->
+            <div class="assurances-list" role="list">
+              <div class="assurance-item" role="listitem">
+                <svg class="assurance-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                  <polyline points="9 12 11 14 15 10"/>
+                </svg>
+                <span class="assurance-text">Verified contractors</span>
+              </div>
+              <div class="assurance-item" role="listitem">
+                <svg class="assurance-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M6 3h12M6 8h12M6 13l7.5 8M6 13h4a4.5 4.5 0 0 0 4.5-4.5V8M6 8h7"/>
+                </svg>
+                <span class="assurance-text">Clear price estimates</span>
+              </div>
+              <div class="assurance-item" role="listitem">
+                <svg class="assurance-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                </svg>
+                <span class="assurance-text">Genuine reviews</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project Request Form Beside Hero -->
+          <div class="form-wrapper">
+            <div class="form-card" id="project-form">
+              <div class="form-card-header">
+                <h2 class="form-card-title">Request project estimates</h2>
+                <p class="form-card-subtitle">Tell us what you need. Receive responses from verified local contractors.</p>
+              </div>
+
+              <form id="project-request-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" novalidate>
+                <!-- Service Type Dropdown -->
+                <div class="form-group">
+                  <label for="project-service" class="form-label">Service type</label>
+                  <select id="project-service" name="service_type" class="form-control" required>
+                    <option value="" disabled selected>Select a service</option>
+                    <option value="Civil construction">Civil construction</option>
+                    <option value="Renovation">Renovation</option>
+                    <option value="Plumbing">Plumbing</option>
+                    <option value="Electrical">Electrical</option>
+                    <option value="Painting">Painting</option>
+                    <option value="Carpentry and interiors">Carpentry and interiors</option>
+                    <option value="Tiling and flooring">Tiling and flooring</option>
+                    <option value="Roofing and waterproofing">Roofing and waterproofing</option>
+                  </select>
+                </div>
+
+                <!-- Location & Budget Range in INR -->
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="project-location" class="form-label">Location</label>
+                    <input type="text" id="project-location" name="location" class="form-control" placeholder="City or area (e.g. Bangalore)" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="project-budget" class="form-label">Budget range (₹)</label>
+                    <select id="project-budget" name="budget_range_inr" class="form-control" required>
+                      <option value="" disabled selected>Select budget</option>
+                      <option value="Under ₹25,000">Under ₹25,000</option>
+                      <option value="₹25,000 - ₹50,000">₹25,000 – ₹50,000</option>
+                      <option value="₹50,000 - ₹1,00,000">₹50,00,000 – ₹1,00,000</option>
+                      <option value="₹1,00,000 - ₹3,00,000">₹1,00,000 – ₹3,00,000</option>
+                      <option value="₹3,00,000 - ₹10,00,000">₹3,00,000 – ₹10,00,000</option>
+                      <option value="₹10,00,000+">₹10,00,000+</option>
+                    </select>
+                  </div>
+                </div>
+
+                <!-- Start Timing -->
+                <div class="form-group">
+                  <label for="project-timing" class="form-label">Start timing</label>
+                  <select id="project-timing" name="start_timing" class="form-control" required>
+                    <option value="" disabled selected>When should work begin?</option>
+                    <option value="Immediately (Within 48 hours)">Immediately (Within 48 hours)</option>
+                    <option value="Within 1-2 weeks">Within 1–2 weeks</option>
+                    <option value="Within a month">Within a month</option>
+                    <option value="Flexible / Just exploring">Flexible / Just exploring</option>
+                  </select>
+                </div>
+
+                <!-- Optional Details -->
+                <div class="form-group">
+                  <label for="project-details" class="form-label">Project details <span class="optional">(optional)</span></label>
+                  <textarea id="project-details" name="details" class="form-control" rows="3" placeholder="Briefly describe your requirements, property size, or specific materials..."></textarea>
+                </div>
+
+                <!-- Customer Name & Contact -->
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="customer-name" class="form-label">Your name</label>
+                    <input type="text" id="customer-name" name="name" class="form-control" placeholder="Full name" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="customer-contact" class="form-label">Your phone or email</label>
+                    <input type="text" id="customer-contact" name="contact" class="form-control" placeholder="Phone or email" required>
+                  </div>
+                </div>
+
+                <!-- Submit Button -->
+                <button type="submit" class="btn btn-gold btn-full" id="project-submit-btn">
+                  <span class="btn-loading-spinner" aria-hidden="true"></span>
+                  <span class="btn-text">Find contractors</span>
+                </button>
+
+                <!-- Accessible Status Message Area -->
+                <div id="project-form-status" class="form-status-alert" role="alert" aria-live="polite"></div>
+              </form>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         4. HOW IT WORKS (4 Steps)
+         ========================================================================== -->
+    <section class="section how-it-works-section" id="how-it-works">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Simple & Transparent</span>
+          <h2 class="section-title">How it works</h2>
+          <p class="section-subtitle">We make hiring verified contractors straightforward, fair, and hassle-free from start to finish.</p>
+        </div>
+
+        <div class="steps-grid">
+          <!-- Step 1 -->
+          <div class="step-card">
+            <div class="step-number-badge" aria-label="Step 1">01</div>
+            <h3 class="step-title">Post your project</h3>
+            <p class="step-text">Share your service requirement, location, and budget range in under two minutes with our clear request form.</p>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="step-card">
+            <div class="step-number-badge" aria-label="Step 2">02</div>
+            <h3 class="step-title">Get matched</h3>
+            <p class="step-text">We connect your request with up to three verified, background-checked contractors active in your area.</p>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="step-card">
+            <div class="step-number-badge" aria-label="Step 3">03</div>
+            <h3 class="step-title">Compare and choose</h3>
+            <p class="step-text">Review itemized price estimates, genuine homeowner reviews, and contractor schedules before deciding.</p>
+          </div>
+
+          <!-- Step 4 -->
+          <div class="step-card">
+            <div class="step-number-badge" aria-label="Step 4">04</div>
+            <h3 class="step-title">Hire and track</h3>
+            <p class="step-text">Confirm your chosen contractor, agree on key milestones, and begin your project with confidence.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         5. SERVICES (8 Clickable Tiles)
+         ========================================================================== -->
+    <section class="section services-section" id="services">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Expertise</span>
+          <h2 class="section-title">Our services</h2>
+          <p class="section-subtitle">Click any service to select it and jump directly to the project request form.</p>
+        </div>
+
+        <div class="services-grid" role="list">
+          
+          <!-- 1. Civil construction -->
+          <button type="button" class="service-tile" data-service="Civil construction" role="listitem" aria-label="Civil construction. Click to pre-select in project form">
+            <div class="service-icon-box" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="6" width="20" height="12" rx="1"/>
+                <path d="M12 6v12M2 12h20M7 6v6M17 12v6"/>
+              </svg>
+            </div>
+            <h3 class="service-title">Civil construction</h3>
+            <p class="service-desc">Foundation work, brick masonry, structural concrete, and new residential or commercial builds.</p>
+            <span class="service-action-link">Select service <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+          </button>
+
+          <!-- 2. Renovation -->
+          <button type="button" class="service-tile" data-service="Renovation" role="listitem" aria-label="Renovation. Click to pre-select in project form">
+            <div class="service-icon-box" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                <polyline points="9 22 9 12 15 12 15 22"/>
+              </svg>
+            </div>
+            <h3 class="service-title">Renovation</h3>
+            <p class="service-desc">Complete home remodeling, kitchen & bathroom upgrades, extensions, and spatial overhauls.</p>
+            <span class="service-action-link">Select service <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+          </button>
+
+          <!-- 3. Plumbing -->
+          <button type="button" class="service-tile" data-service="Plumbing" role="listitem" aria-label="Plumbing. Click to pre-select in project form">
+            <div class="service-icon-box" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+              </svg>
+            </div>
+            <h3 class="service-title">Plumbing</h3>
+            <p class="service-desc">Pipeline installation, drainage networks, sanitary fitting replacements, pumps, and leak repairs.</p>
+            <span class="service-action-link">Select service <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+          </button>
+
+          <!-- 4. Electrical -->
+          <button type="button" class="service-tile" data-service="Electrical" role="listitem" aria-label="Electrical. Click to pre-select in project form">
+            <div class="service-icon-box" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+              </svg>
+            </div>
+            <h3 class="service-title">Electrical</h3>
+            <p class="service-desc">Concealed house wiring, switchboard upgrades, DB installations, lighting, and load balancing.</p>
+            <span class="service-action-link">Select service <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+          </button>
+
+          <!-- 5. Painting -->
+          <button type="button" class="service-tile" data-service="Painting" role="listitem" aria-label="Painting. Click to pre-select in project form">
+            <div class="service-icon-box" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M19 11V4a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v7"/>
+                <path d="M5 11h14a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2h-5v5h-4v-5H5a2 2 0 0 1-2-2v-2a2 2 0 0 1 2-2z"/>
+              </svg>
+            </div>
+            <h3 class="service-title">Painting</h3>
+            <p class="service-desc">Interior emulsion, exterior weatherproofing coatings, putty smoothing, and premium texture finishes.</p>
+            <span class="service-action-link">Select service <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+          </button>
+
+          <!-- 6. Carpentry and interiors -->
+          <button type="button" class="service-tile" data-service="Carpentry and interiors" role="listitem" aria-label="Carpentry and interiors. Click to pre-select in project form">
+            <div class="service-icon-box" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 3h18v6H3zM3 9v12h18V9M9 15h6"/>
+              </svg>
+            </div>
+            <h3 class="service-title">Carpentry & interiors</h3>
+            <p class="service-desc">Custom wardrobes, modular kitchens, wooden doors, CNC panelling, and woodwork finishing.</p>
+            <span class="service-action-link">Select service <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+          </button>
+
+          <!-- 7. Tiling and flooring -->
+          <button type="button" class="service-tile" data-service="Tiling and flooring" role="listitem" aria-label="Tiling and flooring. Click to pre-select in project form">
+            <div class="service-icon-box" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="3" width="7" height="7"/>
+                <rect x="14" y="3" width="7" height="7"/>
+                <rect x="14" y="14" width="7" height="7"/>
+                <rect x="3" y="14" width="7" height="7"/>
+              </svg>
+            </div>
+            <h3 class="service-title">Tiling & flooring</h3>
+            <p class="service-desc">Vitrified tiles, marble laying, granite countertops, wooden flooring, and epoxy grout sealing.</p>
+            <span class="service-action-link">Select service <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+          </button>
+
+          <!-- 8. Roofing and waterproofing -->
+          <button type="button" class="service-tile" data-service="Roofing and waterproofing" role="listitem" aria-label="Roofing and waterproofing. Click to pre-select in project form">
+            <div class="service-icon-box" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M2 10L12 2l10 8"/>
+                <path d="M12 12v6M8 15v3M16 15v3"/>
+                <path d="M4 10v10h16V10"/>
+              </svg>
+            </div>
+            <h3 class="service-title">Roofing & waterproofing</h3>
+            <p class="service-desc">Terrace water-proofing membranes, sheet roofing, expansion joint sealing, and leak remediation.</p>
+            <span class="service-action-link">Select service <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+          </button>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         6. WHY AHLR
+         ========================================================================== -->
+    <section class="section why-section" id="why-ahlr">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Our Promise</span>
+          <h2 class="section-title">Why choose AHLR Venture</h2>
+          <p class="section-subtitle">We remove the guesswork from building and renovation by maintaining strict quality standards.</p>
+        </div>
+
+        <div class="why-grid">
+          <!-- Pillar 1 -->
+          <div class="why-card">
+            <div class="why-icon-wrap" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                <polyline points="9 12 11 14 15 10"/>
+              </svg>
+            </div>
+            <div class="why-card-content">
+              <h3>Verified contractors</h3>
+              <p>Every contractor on our roster undergoes in-person credential checks, trade history verification, and past project inspections before being approved.</p>
+            </div>
+          </div>
+
+          <!-- Pillar 2 -->
+          <div class="why-card">
+            <div class="why-icon-wrap" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M6 3h12M6 8h12M6 13l7.5 8M6 13h4a4.5 4.5 0 0 0 4.5-4.5V8M6 8h7"/>
+              </svg>
+            </div>
+            <div class="why-card-content">
+              <h3>Transparent price estimates</h3>
+              <p>No sudden surcharges or inflated quotes. You receive clear, itemized price estimates in Indian rupees so you can budget realistically.</p>
+            </div>
+          </div>
+
+          <!-- Pillar 3 -->
+          <div class="why-card">
+            <div class="why-icon-wrap" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+              </svg>
+            </div>
+            <div class="why-card-content">
+              <h3>Genuine reviews</h3>
+              <p>Our review system displays authentic ratings from verified property owners who have completed real jobs with the contractor.</p>
+            </div>
+          </div>
+
+          <!-- Pillar 4 -->
+          <div class="why-card">
+            <div class="why-icon-wrap" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M16 3h5v5M4 20L21 3M21 16v5h-5M15 15l6 6M4 4l5 5"/>
+              </svg>
+            </div>
+            <div class="why-card-content">
+              <h3>Easy comparison</h3>
+              <p>Compare quotes, experience, timeline, and contractor availability side-by-side without endless phone calls or scattered estimates.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         7. COMPARE CONTRACTORS (Sample Listings)
+         ========================================================================== -->
+    <section class="section compare-section" id="compare-contractors">
+      <div class="container">
+        <div class="section-header">
+          <div class="sample-notice-banner">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+            Sample Listings • Live directory coming soon
+          </div>
+          <h2 class="section-title">Compare contractors</h2>
+          <p class="section-subtitle">Take a look at how contractor profiles and bids appear on AHLR Venture before you hire.</p>
+        </div>
+
+        <div class="contractors-grid">
+          
+          <!-- Sample Contractor 1 -->
+          <article class="contractor-card">
+            <span class="contractor-sample-tag">Sample Listing</span>
+            <span class="contractor-trade-badge">Renovation & Civil</span>
+            <h3 class="contractor-name">Apex Buildtech Solutions</h3>
+            <div class="contractor-verified">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+              Verified Contractor
+            </div>
+
+            <ul class="contractor-meta-list">
+              <li class="contractor-meta-item">
+                <span class="meta-label">Experience</span>
+                <span class="meta-value">12+ years</span>
+              </li>
+              <li class="contractor-meta-item">
+                <span class="meta-label">Customer Rating</span>
+                <span class="meta-value contractor-rating">
+                  <span class="rating-star">★</span> 4.9 <small style="color:var(--color-text-muted);">(128 reviews)</small>
+                </span>
+              </li>
+              <li class="contractor-meta-item">
+                <span class="meta-label">Estimated Price</span>
+                <span class="meta-value">₹80,000 – ₹4,50,000</span>
+              </li>
+              <li class="contractor-meta-item">
+                <span class="meta-label">Availability</span>
+                <span class="meta-value" style="color:var(--color-navy); font-weight:700;">Available next week</span>
+              </li>
+            </ul>
+
+            <button type="button" class="btn btn-gold btn-full quote-request-btn" data-trade="Renovation">Request a quote</button>
+          </article>
+
+          <!-- Sample Contractor 2 -->
+          <article class="contractor-card">
+            <span class="contractor-sample-tag">Sample Listing</span>
+            <span class="contractor-trade-badge">Carpentry & Interiors</span>
+            <h3 class="contractor-name">Woodcraft Modulars</h3>
+            <div class="contractor-verified">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+              Verified Contractor
+            </div>
+
+            <ul class="contractor-meta-list">
+              <li class="contractor-meta-item">
+                <span class="meta-label">Experience</span>
+                <span class="meta-value">8+ years</span>
+              </li>
+              <li class="contractor-meta-item">
+                <span class="meta-label">Customer Rating</span>
+                <span class="meta-value contractor-rating">
+                  <span class="rating-star">★</span> 4.8 <small style="color:var(--color-text-muted);">(94 reviews)</small>
+                </span>
+              </li>
+              <li class="contractor-meta-item">
+                <span class="meta-label">Estimated Price</span>
+                <span class="meta-value">₹45,000 – ₹2,50,000</span>
+              </li>
+              <li class="contractor-meta-item">
+                <span class="meta-label">Availability</span>
+                <span class="meta-value" style="color:var(--color-navy); font-weight:700;">Available in 4 days</span>
+              </li>
+            </ul>
+
+            <button type="button" class="btn btn-gold btn-full quote-request-btn" data-trade="Carpentry and interiors">Request a quote</button>
+          </article>
+
+          <!-- Sample Contractor 3 -->
+          <article class="contractor-card">
+            <span class="contractor-sample-tag">Sample Listing</span>
+            <span class="contractor-trade-badge">Electrical & Plumbing</span>
+            <h3 class="contractor-name">BrightFlow MEP Services</h3>
+            <div class="contractor-verified">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+              Verified Contractor
+            </div>
+
+            <ul class="contractor-meta-list">
+              <li class="contractor-meta-item">
+                <span class="meta-label">Experience</span>
+                <span class="meta-value">10+ years</span>
+              </li>
+              <li class="contractor-meta-item">
+                <span class="meta-label">Customer Rating</span>
+                <span class="meta-value contractor-rating">
+                  <span class="rating-star">★</span> 4.9 <small style="color:var(--color-text-muted);">(156 reviews)</small>
+                </span>
+              </li>
+              <li class="contractor-meta-item">
+                <span class="meta-label">Estimated Price</span>
+                <span class="meta-value">₹15,000 – ₹85,000</span>
+              </li>
+              <li class="contractor-meta-item">
+                <span class="meta-label">Availability</span>
+                <span class="meta-value" style="color:var(--color-navy); font-weight:700;">Available immediately</span>
+              </li>
+            </ul>
+
+            <button type="button" class="btn btn-gold btn-full quote-request-btn" data-trade="Electrical">Request a quote</button>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         8. FOR CONTRACTORS (Banner + Sign-Up Form)
+         ========================================================================== -->
+    <section class="for-contractors-section" id="for-contractors">
+      <div class="container">
+        <div class="contractor-join-grid">
+          
+          <!-- Banner Information -->
+          <div class="contractor-banner-info">
+            <span class="section-tag">Join Our Network</span>
+            <h2 class="section-title">Grow your contracting business with qualified local leads.</h2>
+            <p>
+              Are you a professional contractor or skilled tradesperson? Partner with AHLR Venture to access genuine homeowner requests with zero commission on your labor.
+            </p>
+
+            <ul class="contractor-perks-list">
+              <li class="contractor-perk-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>Direct customer connection with realistic project budgets</span>
+              </li>
+              <li class="contractor-perk-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>Fast onboarding and verified badge to build credibility</span>
+              </li>
+              <li class="contractor-perk-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>Fair lead distribution matching your trade and local service radius</span>
+              </li>
+            </ul>
+
+            <a href="#contractor-form" class="btn btn-gold" id="btn-scroll-contractor-form">Join as a contractor</a>
+          </div>
+
+          <!-- Contractor Sign-Up Form -->
+          <div class="contractor-form-box" id="contractor-form">
+            <h3>Contractor Application</h3>
+            <p>Fill out this short form to apply for our verified partner network.</p>
+
+            <form id="contractor-signup-form" action="https://formspree.io/f/YOUR_CONTRACTOR_FORM_ID" method="POST" novalidate>
+              <!-- Name -->
+              <div class="form-group">
+                <label for="contractor-name-input" class="form-label">Full name or business name</label>
+                <input type="text" id="contractor-name-input" name="contractor_name" class="form-control" placeholder="e.g. Ramesh Kumar or Kumar Constructions" required>
+              </div>
+
+              <!-- Trade -->
+              <div class="form-group">
+                <label for="contractor-trade-select" class="form-label">Primary trade</label>
+                <select id="contractor-trade-select" name="trade" class="form-control" required>
+                  <option value="" disabled selected>Select your primary trade</option>
+                  <option value="Civil construction">Civil construction</option>
+                  <option value="Renovation">Renovation</option>
+                  <option value="Plumbing">Plumbing</option>
+                  <option value="Electrical">Electrical</option>
+                  <option value="Painting">Painting</option>
+                  <option value="Carpentry and interiors">Carpentry and interiors</option>
+                  <option value="Tiling and flooring">Tiling and flooring</option>
+                  <option value="Roofing and waterproofing">Roofing and waterproofing</option>
+                  <option value="Multiple Trades / General Contractor">Multiple Trades / General Contractor</option>
+                </select>
+              </div>
+
+              <!-- Years of Experience -->
+              <div class="form-group">
+                <label for="contractor-exp-select" class="form-label">Years of experience</label>
+                <select id="contractor-exp-select" name="years_of_experience" class="form-control" required>
+                  <option value="" disabled selected>Select experience</option>
+                  <option value="1-3 years">1–3 years</option>
+                  <option value="4-7 years">4–7 years</option>
+                  <option value="8-12 years">8–12 years</option>
+                  <option value="12+ years">12+ years</option>
+                </select>
+              </div>
+
+              <!-- Phone or Email -->
+              <div class="form-group">
+                <label for="contractor-contact-input" class="form-label">Phone or email</label>
+                <input type="text" id="contractor-contact-input" name="contact_info" class="form-control" placeholder="Mobile number or email address" required>
+              </div>
+
+              <!-- Submit Button -->
+              <button type="submit" class="btn btn-gold btn-full" id="contractor-submit-btn">
+                <span class="btn-loading-spinner" aria-hidden="true"></span>
+                <span class="btn-text">Submit application</span>
+              </button>
+
+              <!-- Accessible Status Message Area -->
+              <div id="contractor-form-status" class="form-status-alert" role="alert" aria-live="polite"></div>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         FUTURE FEATURES ARCHITECTURE HOOKS (DO NOT REMOVE)
+         ==========================================================================
+         <!-- LATER FEATURE: Contractor Profiles & Directory modal/views -->
+         <!-- LATER FEATURE: Customer-Contractor Direct Messaging -->
+         <!-- LATER FEATURE: Live Project Tracking & Milestone Management -->
+         <!-- LATER FEATURE: Interactive Price Estimator & Cost Calculator -->
+         <!-- LATER FEATURE: Verified Customer Reviews & Photo Gallery Uploads -->
+    -->
+  </main>
+
+  <!-- ==========================================================================
+       9. FOOTER (Strictly no phone number, address or email per requirements)
+       ========================================================================== -->
+  <footer class="footer" id="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        
+        <!-- Brand Information -->
+        <div class="footer-brand">
+          <svg class="footer-logo-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 64" fill="none" role="img" aria-label="AHLR Venture">
+            <g transform="translate(6, 6)">
+              <path d="M 33 23 V 15 H 39 V 28.5" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M 11 35 V 45 H 39 V 35" fill="none" stroke="#FFFFFF" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M 4 35 L 25 14 L 46 35" fill="none" stroke="#D9A02B" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M 21 45 V 34 H 29 V 45" fill="#D9A02B"/>
+              <circle cx="25" cy="24" r="2.5" fill="#FFFFFF"/>
+            </g>
+            <text x="66" y="35" font-family="'Jost', system-ui, sans-serif" font-size="28" font-weight="700" fill="#FFFFFF" letter-spacing="0.06em">AHLR</text>
+            <text x="67" y="51" font-family="'Jost', system-ui, sans-serif" font-size="12" font-weight="600" fill="#D9A02B" letter-spacing="0.28em">VENTURE</text>
+          </svg>
+          <p class="footer-tagline">Connecting you to reliable contractors</p>
+        </div>
+
+        <!-- Navigation Links -->
+        <ul class="footer-nav" aria-label="Footer Navigation">
+          <li><a href="#how-it-works" class="footer-link">How it works</a></li>
+          <li><a href="#services" class="footer-link">Services</a></li>
+          <li><a href="#why-ahlr" class="footer-link">Why AHLR</a></li>
+          <li><a href="#for-contractors" class="footer-link">For contractors</a></li>
+          <li><a href="#project-form" class="footer-link">Post a project</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 AHLR Venture. All rights reserved.</p>
+        <p>Built for homeowners and small builders.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       JAVASCRIPT (Interactivity, Smooth Scrolling & Formspree Handling)
+       ========================================================================== -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // 1. STICKY HEADER SHADOW ON SCROLL
+      const header = document.getElementById('site-header');
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 20) {
+          header.classList.add('is-scrolled');
+        } else {
+          header.classList.remove('is-scrolled');
+        }
+      }, { passive: true });
+
+      // 2. MOBILE MENU TOGGLE
+      const mobileBtn = document.getElementById('mobile-menu-btn');
+      const navMenu = document.getElementById('nav-menu');
+      if (mobileBtn && navMenu) {
+        mobileBtn.addEventListener('click', () => {
+          const isExpanded = mobileBtn.getAttribute('aria-expanded') === 'true';
+          mobileBtn.setAttribute('aria-expanded', !isExpanded);
+          navMenu.classList.toggle('is-active');
+        });
+
+        // Close mobile menu when a nav link is clicked
+        navMenu.querySelectorAll('a').forEach(link => {
+          link.addEventListener('click', () => {
+            mobileBtn.setAttribute('aria-expanded', 'false');
+            navMenu.classList.remove('is-active');
+          });
+        });
+      }
+
+      // 3. SERVICE TILES CLICK -> PRE-SELECT FORM DROPDOWN & SCROLL
+      const serviceTiles = document.querySelectorAll('.service-tile');
+      const serviceSelect = document.getElementById('project-service');
+      const projectFormElement = document.getElementById('project-form');
+
+      function selectServiceAndScroll(serviceName) {
+        if (serviceSelect) {
+          serviceSelect.value = serviceName;
+          serviceSelect.classList.remove('highlight-pulse');
+          // Trigger reflow to restart CSS animation
+          void serviceSelect.offsetWidth;
+          serviceSelect.classList.add('highlight-pulse');
+        }
+        if (projectFormElement) {
+          projectFormElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          if (serviceSelect) {
+            setTimeout(() => serviceSelect.focus(), 600);
+          }
+        }
+      }
+
+      serviceTiles.forEach(tile => {
+        tile.addEventListener('click', () => {
+          const serviceName = tile.getAttribute('data-service');
+          if (serviceName) {
+            selectServiceAndScroll(serviceName);
+          }
+        });
+      });
+
+      // 4. "REQUEST A QUOTE" BUTTONS FROM CONTRACTOR CARDS
+      const quoteButtons = document.querySelectorAll('.quote-request-btn');
+      quoteButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const trade = btn.getAttribute('data-trade');
+          if (trade && serviceSelect) {
+            selectServiceAndScroll(trade);
+          } else if (projectFormElement) {
+            projectFormElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          }
+        });
+      });
+
+      // 5. CONTRACTOR BANNER BUTTON SMOOTH SCROLL
+      const btnScrollContractor = document.getElementById('btn-scroll-contractor-form');
+      const contractorFormElement = document.getElementById('contractor-form');
+      if (btnScrollContractor && contractorFormElement) {
+        btnScrollContractor.addEventListener('click', (e) => {
+          e.preventDefault();
+          contractorFormElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          const firstField = document.getElementById('contractor-name-input');
+          if (firstField) {
+            setTimeout(() => firstField.focus(), 600);
+          }
+        });
+      }
+
+      // 6. ASYNCHRONOUS FORMSPREE SUBMISSION HELPER
+      async function handleFormSubmit(form, statusAlert, submitBtn, successText) {
+        form.addEventListener('submit', async (e) => {
+          e.preventDefault();
+          
+          // Clear previous status
+          statusAlert.className = 'form-status-alert';
+          statusAlert.textContent = '';
+
+          // Basic HTML5 validation check
+          if (!form.checkValidity()) {
+            form.reportValidity();
+            return;
+          }
+
+          // Disable button and show spinner
+          submitBtn.disabled = true;
+          submitBtn.classList.add('is-submitting');
+
+          const formData = new FormData(form);
+          const endpoint = form.getAttribute('action');
+
+          try {
+            const response = await fetch(endpoint, {
+              method: 'POST',
+              body: formData,
+              headers: {
+                'Accept': 'application/json'
+              }
+            });
+
+            if (response.ok) {
+              statusAlert.className = 'form-status-alert is-success';
+              statusAlert.textContent = successText;
+              form.reset();
+            } else {
+              const data = await response.json().catch(() => ({}));
+              let errorMessage = "There was an issue sending your request. Please check your information and try again.";
+              if (data && data.errors && data.errors.length > 0) {
+                errorMessage = data.errors.map(err => err.message).join(', ');
+              }
+              statusAlert.className = 'form-status-alert is-error';
+              statusAlert.textContent = errorMessage;
+            }
+          } catch (error) {
+            statusAlert.className = 'form-status-alert is-error';
+            statusAlert.textContent = "Unable to connect. Please check your internet connection and try again.";
+          } finally {
+            submitBtn.disabled = false;
+            submitBtn.classList.remove('is-submitting');
+          }
+        });
+      }
+
+      // Initialize Project Request Form Submission
+      const projectForm = document.getElementById('project-request-form');
+      const projectStatus = document.getElementById('project-form-status');
+      const projectSubmitBtn = document.getElementById('project-submit-btn');
+      if (projectForm && projectStatus && projectSubmitBtn) {
+        handleFormSubmit(
+          projectForm,
+          projectStatus,
+          projectSubmitBtn,
+          "Thanks, we'll contact you soon."
+        );
+      }
+
+      // Initialize Contractor Application Form Submission
+      const contractorForm = document.getElementById('contractor-signup-form');
+      const contractorStatus = document.getElementById('contractor-form-status');
+      const contractorSubmitBtn = document.getElementById('contractor-submit-btn');
+      if (contractorForm && contractorStatus && contractorSubmitBtn) {
+        handleFormSubmit(
+          contractorForm,
+          contractorStatus,
+          contractorSubmitBtn,
+          "Thanks for applying! We'll review your details and contact you soon."
+        );
+      }
+    });
+  </script>
+</body>
+</html>
